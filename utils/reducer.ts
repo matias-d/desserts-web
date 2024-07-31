@@ -1,6 +1,6 @@
 import { DessertI } from "@/types/Dessert";
 
-export const cartInitialState: DessertI[] = JSON.parse(window.localStorage.getItem('cart') || '[]')
+export const cartInitialState: DessertI[] = JSON.parse(localStorage.getItem('cart') || '[]')
 
 type optionTypes = 'ADD_TO_CART' | 'REMOVE_TO_CART' | 'NEW_ORDER' | 'INCREMENT_PRODUCT' | 'DECREMENT_PRODUCT'
 interface Action {
@@ -9,7 +9,7 @@ interface Action {
 }
 
 export const updateLocalStorage = (state: DessertI[]) => {
-    window.localStorage.setItem('cart', JSON.stringify(state))
+    localStorage.setItem('cart', JSON.stringify(state))
 }
 
 type functionUpdate = (state: DessertI[], action: Action) => DessertI[]
